@@ -48,6 +48,7 @@ $config = [
             'rules' => [
                 'user/register' => 'user/register',
                 'user/list' => 'user/list',
+                'user/login' => 'user/login',
             ],
         ],
     ],

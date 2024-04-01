@@ -24,16 +24,4 @@ class RegistrationForm extends Model
             [['password'], 'string', 'min' => 6],
         ];
     }
-
-    /**
-     * @inheritdoc
-     */
-    public function attributeLabels()
-    {
-        return [
-            'username' => 'Username',
-            'email' => 'Email',
-            'password' => 'Password',
-        ];
-    }
 }

@@ -6,6 +6,7 @@ use Yii;
 use yii\web\Controller;
 use app\models\User;
 use app\models\forms\RegistrationForm;
+use app\models\forms\LoginForm;
 
 class UserController extends Controller
 {
@@ -29,6 +30,19 @@ class UserController extends Controller
         }
 
         return $this->render('register', ['model' => $model]);
+    }
+
+    public function actionLogin()
+    {
+        $model = new LoginForm();
+
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            // Perform login authentication here
+            Yii::$app->session->setFlash('success', 'Login successful.');
+            return $this->redirect(['site/index']);
+        }
+
+        return $this->render('login', ['model' => $model]);
     }
 
     public function actionList()

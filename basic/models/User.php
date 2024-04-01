@@ -13,36 +13,6 @@ class User extends ActiveRecord
     {
         return 'users'; // Assuming the table name is 'user'
     }
-
-    /**
-     * @inheritdoc
-     */
-    public function rules()
-    {
-        return [
-            [['username', 'email', 'password'], 'required'],
-            [['username', 'email'], 'string', 'max' => 255],
-            ['email', 'email'],
-            ['email', 'unique', 'targetClass' => '\app\models\User', 'message' => 'This email address has already been taken.'],
-            ['username', 'unique', 'targetClass' => '\app\models\User', 'message' => 'This username has already been taken.'],
-            ['password', 'string', 'min' => 6],
-        ];
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function attributeLabels()
-    {
-        return [
-            'id' => 'ID',
-            'username' => 'Username',
-            'email' => 'Email',
-            'password' => 'Password',
-            // Add other attribute labels as needed
-        ];
-    }
-
     /**
      * @inheritdoc
      */
@@ -56,10 +26,5 @@ class User extends ActiveRecord
             return true;
         }
         return false;
-    }
-
-    public static function findByUsername($username)
-    {
-        return static::findOne(['username' => $username]);
     }
 }
