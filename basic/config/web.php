@@ -51,6 +51,10 @@ $config = [
                 'user/login' => 'user/login',
             ],
         ],
+        'pdf' => [
+            'class' => 'kartik\mpdf\Pdf',
+            // You can customize additional configuration options here
+        ],
     ],
     'params' => $params,
 ];
